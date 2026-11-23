@@ -202,11 +202,17 @@ function setupControllerBarCollapse() {
     const controllerBody = document.getElementById('controllerBody');
     if (!toggleBtn || !controllerBody) return;
 
-    let isCollapsed = false;
+    // Auto-collapse on mobile devices to prevent covering content
+    let isCollapsed = window.innerWidth <= 768;
+    if (isCollapsed) {
+        controllerBody.style.display = 'none';
+        toggleBtn.innerHTML = '<i class="fa-solid fa-chevron-up"></i>';
+    }
+
     toggleBtn.addEventListener('click', () => {
         isCollapsed = !isCollapsed;
         controllerBody.style.display = isCollapsed ? 'none' : 'block';
-        toggleBtn.innerHTML = isCollapsed ? '<i class="fa-solid fa-chevron-down"></i>' : '<i class="fa-solid fa-chevron-up"></i>';
+        toggleBtn.innerHTML = isCollapsed ? '<i class="fa-solid fa-chevron-up"></i>' : '<i class="fa-solid fa-chevron-down"></i>';
     });
 }
 
@@ -219,6 +225,13 @@ function setupMobileMenu() {
     if (mobileMenuBtn && navLinksList) {
         mobileMenuBtn.addEventListener('click', () => {
             navLinksList.classList.toggle('open');
+        });
+
+        // Close menu automatically when any link is tapped on mobile
+        navLinksList.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinksList.classList.remove('open');
+            });
         });
     }
 }
