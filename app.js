@@ -255,16 +255,30 @@ function setupMobilePreview() {
  * Demo Controller Collapse
  */
 function setupControllerBarCollapse() {
-    const toggleBtn = document.getElementById('toggleControllerBtn');
-    const controllerBody = document.getElementById('controllerBody');
-    if (!toggleBtn || !controllerBody) return;
-
-    // Auto-collapse on mobile devices to prevent covering content
-    let isCollapsed = window.innerWidth <= 768;
-    if (isCollapsed) {
-        controllerBody.style.display = 'none';
-        toggleBtn.innerHTML = '<i class="fa-solid fa-chevron-up"></i>';
+    const triggerBtn = document.getElementById('dockTriggerBtn');
+    const dockPanel = document.getElementById('dockPanel');
+    const closeBtn = document.getElementById('dockCloseBtn');
+    
+    if (triggerBtn && dockPanel) {
+        triggerBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dockPanel.classList.toggle('open');
+        });
     }
+
+    if (closeBtn && dockPanel) {
+        closeBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dockPanel.classList.remove('open');
+        });
+    }
+
+    document.addEventListener('click', (e) => {
+        if (dockPanel && !dockPanel.contains(e.target) && e.target !== triggerBtn) {
+            dockPanel.classList.remove('open');
+        }
+    });
+}
 
     toggleBtn.addEventListener('click', () => {
         isCollapsed = !isCollapsed;
