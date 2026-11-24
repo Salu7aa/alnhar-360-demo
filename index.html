@@ -50,507 +50,583 @@
     <!-- Site Wrapper -->
     <div class="site-wrapper" id="siteWrapper">
 
-        <!-- =================== TOP BAR =================== -->
-        <header class="top-ticker-bar">
-            <div class="container top-bar-flex">
-                <div class="top-bar-right">
-                    <div class="date-time-item">
-                        <i class="fa-regular fa-calendar-days"></i>
-                        <span id="currentDateStr">الإثنين 23 نوفمبر 2026 | 14 جمادى الأولى 1448 هـ</span>
+        <!-- =================== MADAR-STYLE TOP HEADER =================== -->
+        <header class="madar-top-header">
+            <div class="container madar-header-flex">
+                <!-- Left: Language Switcher -->
+                <div class="header-lang-switch">
+                    <button class="lang-toggle-btn active-lang">عربي</button>
+                    <button class="lang-toggle-btn" id="langSwitchBtn">English</button>
+                </div>
+
+                <!-- Center: Logo & Tagline -->
+                <div class="header-center-branding" onclick="switchView('homeView')">
+                    <div class="branding-logo-box">
+                        <img src="logo.png" alt="النهار 360" class="madar-official-logo">
                     </div>
-                    <div class="ticker-rates-badge">
-                        <span class="rate-item"><i class="fa-solid fa-coins text-gold"></i> الذهب عيار 21: <strong>3,850 ج.م</strong></span>
-                        <span class="rate-item"><i class="fa-solid fa-dollar-sign text-green"></i> الدولار: <strong>49.20 ج.م</strong></span>
-                        <span class="rate-item"><i class="fa-solid fa-cloud-sun text-cyan"></i> القاهرة: <strong>24°C</strong></span>
+                    <div class="slogan-separator-line"></div>
+                    <div class="branding-slogan-box">
+                        <span class="slogan-ar">الحقيقة في كل الاتجاهات</span>
+                        <span class="slogan-en">The Truth in Every Direction</span>
                     </div>
                 </div>
-                <div class="top-bar-left">
-                    <div class="social-icons-top">
-                        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="#" aria-label="Twitter X"><i class="fa-brands fa-x-twitter"></i></a>
-                        <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-                        <a href="#" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+
+                <!-- Right: Date, Social, Search, Menu -->
+                <div class="header-right-tools">
+                    <div class="header-date-box">
+                        <i class="fa-regular fa-calendar-days text-blue"></i>
+                        <span>السبت، 25 أكتوبر 2026</span>
+                    </div>
+                    <div class="header-social-icons">
                         <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
                     </div>
-                    <div class="top-newsletter-link">
-                        <a href="#newsletterSection"><i class="fa-solid fa-envelope"></i> النشرة الإخبارية</a>
+                    <div class="header-pill-search">
+                        <input type="text" placeholder="ابحث في النهار 360..." aria-label="Search">
+                        <button><i class="fa-solid fa-magnifying-glass"></i></button>
                     </div>
+                    <button class="header-mobile-toggle" id="mobileMenuBtn">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
                 </div>
             </div>
         </header>
 
-        <!-- =================== BRANDING & HEADER =================== -->
-        <div class="main-branding-header">
-            <div class="container header-content-grid">
-                <!-- Brand Logo Area -->
-                <div class="brand-logo-area" id="siteLogoContainer" onclick="switchView('homeView')">
-                    <div class="logo-mark">
-                        <img src="logo.png" alt="النهار 360" class="official-brand-logo">
-                        <div class="logo-titles">
-                            <p class="brand-tagline">بوابة إخبارية شاملة | على مدار الساعة</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Premium Editorial Sponsor / Announcement Banner -->
-                <div class="header-ad-banner">
-                    <div class="ad-container-box premium-sponsor-box">
-                        <div class="sponsor-tag-row">
-                            <span class="ad-tag"><i class="fa-solid fa-crown text-gold"></i> تغطية خاصة وحصرية</span>
-                            <span class="sponsor-brand">النهار 360 بيزنس</span>
-                        </div>
-                        <div class="ad-content-mock">
-                            <div class="sponsor-icon-glow">
-                                <i class="fa-solid fa-chart-pie"></i>
-                            </div>
-                            <div class="sponsor-text">
-                                <strong>الملتقى الاقتصادي السنوي 2026: آفاق الاستثمار والتمويل الأخضر</strong>
-                                <span>متابعة حية وتحليلات مباشرة من قلب الحدث عبر مراسلينا في القاهرة وجنيف</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Quick Action Buttons -->
-                <div class="header-actions">
-                    <button class="live-tv-btn premium-tv-btn" onclick="switchView('homeView'); scrollToSection('videoSection')">
-                        <span class="live-beacon-ring">
-                            <span class="live-dot"></span>
-                        </span>
-                        <div class="tv-btn-text">
-                            <strong>النهار TV</strong>
-                            <small>بث مباشر 24/7</small>
-                        </div>
-                        <i class="fa-solid fa-play play-mini-icon"></i>
+        <!-- =================== MADAR-STYLE NAVIGATION BAR =================== -->
+        <nav class="madar-navbar">
+            <div class="container nav-content-flex">
+                <!-- Urgent Left Badge -->
+                <div class="nav-urgent-wrap">
+                    <button class="urgent-pill-btn" onclick="switchView('homeView')">
+                        <i class="fa-solid fa-bolt"></i> عاجل
                     </button>
-                    <div class="header-search-box luxury-search">
-                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
-                        <input type="text" placeholder="ابحث في الأخبار والتقارير..." aria-label="Search">
-                        <kbd class="search-shortcut">⌘K</kbd>
-                    </div>
                 </div>
-            </div>
-        </div>
 
-        <!-- =================== MAIN NAVIGATION =================== -->
-        <nav class="main-nav-bar" id="mainNavBar">
-            <div class="container nav-bar-inner">
-                <button class="mobile-menu-toggle" id="mobileMenuBtn">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
-                <ul class="nav-links-list" id="navLinksList">
-                    <li class="active"><a href="javascript:void(0)" onclick="switchView('homeView')"><i class="fa-solid fa-house"></i> الرئيسية</a></li>
-                    <li><a href="javascript:void(0)" onclick="switchView('homeView'); scrollToSection('egyptSection')">مصر والمحافظات</a></li>
-                    <li><a href="javascript:void(0)" onclick="switchView('homeView'); scrollToSection('politicsSection')">سياسة</a></li>
-                    <li><a href="javascript:void(0)" onclick="switchView('homeView'); scrollToSection('economySection')">اقتصاد وأعمال</a></li>
-                    <li><a href="javascript:void(0)" onclick="switchView('homeView'); scrollToSection('sportsSection')">رياضة</a></li>
-                    <li><a href="javascript:void(0)" onclick="switchView('homeView')">عرب وعالم</a></li>
-                    <li><a href="javascript:void(0)" onclick="switchView('homeView')">حوادث وقضايا</a></li>
-                    <li><a href="javascript:void(0)" onclick="switchView('homeView')">فن وثقافة</a></li>
-                    <li><a href="javascript:void(0)" onclick="switchView('homeView')">تكنولوجيا</a></li>
-                    <li><a href="javascript:void(0)" onclick="switchView('homeView'); scrollToSection('opinionsSection')">مقالات الرأي</a></li>
-                    <li class="special-nav-item"><a href="javascript:void(0)" onclick="switchView('articleView')"><i class="fa-solid fa-bolt text-gold"></i> قراءة خبر مميز</a></li>
-                    <li class="cms-nav-item"><a href="javascript:void(0)" onclick="switchView('adminView')"><i class="fa-solid fa-gear"></i> إدارة المحتوى</a></li>
-                </ul>
+                <!-- Right Categories Menu -->
+                <div class="nav-links-wrap">
+                    <ul class="nav-cat-list" id="navLinksList">
+                        <li class="nav-item-home active"><a href="javascript:void(0)" onclick="switchView('homeView')"><i class="fa-solid fa-house"></i> الرئيسية</a></li>
+                        <li><a href="javascript:void(0)" onclick="switchView('homeView')"><i class="fa-solid fa-landmark"></i> مصر</a></li>
+                        <li><a href="javascript:void(0)" onclick="switchView('homeView')"><i class="fa-solid fa-globe"></i> العالم</a></li>
+                        <li><a href="javascript:void(0)" onclick="switchView('homeView')"><i class="fa-solid fa-chart-line"></i> الاقتصاد</a></li>
+                        <li><a href="javascript:void(0)" onclick="switchView('homeView')"><i class="fa-solid fa-microchip"></i> التكنولوجيا</a></li>
+                        <li><a href="javascript:void(0)" onclick="switchView('homeView')"><i class="fa-solid fa-futbol"></i> رياضة</a></li>
+                        <li><a href="javascript:void(0)" onclick="switchView('homeView')"><i class="fa-solid fa-heart-pulse"></i> صحة</a></li>
+                        <li><a href="javascript:void(0)" onclick="switchView('homeView')"><i class="fa-solid fa-graduation-cap"></i> تعليم</a></li>
+                        <li><a href="javascript:void(0)" onclick="switchView('homeView')"><i class="fa-solid fa-masks-theater"></i> ثقافة وفنون</a></li>
+                        <li><a href="javascript:void(0)" onclick="switchView('homeView')"><i class="fa-solid fa-face-smile"></i> طرائف</a></li>
+                        <li><a href="javascript:void(0)" onclick="switchView('homeView')"><i class="fa-solid fa-leaf"></i> طبائع</a></li>
+                        <li><a href="javascript:void(0)" onclick="switchView('homeView')"><i class="fa-solid fa-video"></i> فيديو</a></li>
+                        <li><a href="javascript:void(0)" onclick="switchView('homeView')"><i class="fa-solid fa-file-lines"></i> تقارير وتحليلات</a></li>
+                        <li class="cms-nav-item"><a href="javascript:void(0)" onclick="switchView('adminView')"><i class="fa-solid fa-gear"></i> إدارة المحتوى</a></li>
+                    </ul>
+                </div>
             </div>
         </nav>
-
-        <!-- =================== BREAKING NEWS TICKER =================== -->
-        <section class="breaking-news-ticker-container">
-            <div class="container ticker-flex">
-                <div class="breaking-label">
-                    <span class="pulse-beacon"></span>
-                    <i class="fa-solid fa-bolt"></i> عاجل
-                </div>
-                <div class="ticker-content-track">
-                    <div class="ticker-items" id="tickerItemsTrack">
-                        <span class="ticker-entry"><i class="fa-solid fa-circle text-red"></i> الرئيس يفتتح مجمع الصناعات التكنولوجية المتطورة بالعاصمة الإدارية الجديدة</span>
-                        <span class="ticker-entry"><i class="fa-solid fa-circle text-red"></i> البنك المركزي: ارتفاع صافي الاحتياطي النقدي الأجنبي ليسجل 47.8 مليار دولار</span>
-                        <span class="ticker-entry"><i class="fa-solid fa-circle text-red"></i> منتخب مصر يختتم تدريباته لمواجهة السنغال في تصفيات كأس العالم وسط جاهزية كاملة</span>
-                        <span class="ticker-entry"><i class="fa-solid fa-circle text-red"></i> انطلاق فعاليات المنتدى الاقتصادي العربي بمشاركة وزراء مالية 14 دولة عربية</span>
-                    </div>
-                </div>
-                <div class="ticker-controls">
-                    <button id="tickerPauseBtn" title="إيقاف مؤقت"><i class="fa-solid fa-pause"></i></button>
-                </div>
-            </div>
-        </section>
 
         <!-- =================== VIEW 1: HOME VIEW =================== -->
         <main class="page-view-section active-view" id="homeView">
             
-            <!-- Hero Spotlight Section -->
-            <section class="hero-spotlight-section">
-                <div class="container hero-grid">
+            <!-- ROW 1: TOP 3-COLUMN HERO GRID -->
+            <section class="madar-top-hero-row">
+                <div class="container hero-tri-grid">
                     
-                    <!-- Main Master Headline Story (Large) -->
-                    <article class="hero-primary-story" onclick="switchView('articleView')">
-                        <div class="story-image-wrap">
-                            <img src="https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?auto=format&fit=crop&w=1200&q=80" alt="صورة الخبر الرئيسي" loading="lazy">
-                            <div class="story-overlay-gradient"></div>
-                            <span class="story-badge-cat"><i class="fa-solid fa-fire"></i> مانشيت النهار 360</span>
+                    <!-- Col 1: Big Lead Story (52%) -->
+                    <article class="hero-lead-card" onclick="switchView('articleView')">
+                        <div class="lead-media-wrap">
+                            <img src="https://images.unsplash.com/photo-1572252009286-268acec5ca0a?auto=format&fit=crop&w=1200&q=80" alt="مصر تعزز مكانتها كمركز للطاقة المتجددة">
+                            <div class="lead-gradient-overlay"></div>
+                            <span class="lead-badge-red">أهم الأخبار</span>
                         </div>
-                        <div class="story-content-box">
-                            <div class="story-meta">
-                                <span><i class="fa-regular fa-clock"></i> منذ 25 دقيقة</span>
-                                <span><i class="fa-solid fa-eye"></i> 14,280 قراءة</span>
-                                <span class="story-comment-count"><i class="fa-regular fa-comment"></i> 38 تعليق</span>
-                            </div>
-                            <h1 class="story-main-title">
-                                خطة تنموية شاملة: مصر تطلق حزمة حوافز اقتصادية واستثمارية بـ 60 مليار جنيه لتوطين التكنولوجيا والصناعة
-                            </h1>
-                            <p class="story-summary-text">
-                                أعلنت الحكومة اليوم عن حزمة إجراءات وتيسيرات ضريبية وجمركية غير مسبوقة تهدف لجذب الاستثمارات الأجنبية المباشرة وتمكين القطاع الخاص، مع التركيز على مشاريع الطاقة الخضراء وتصنيع السيارات الكهربائية.
+                        <div class="lead-caption-box">
+                            <h1 class="lead-title-main">مصر تعزز مكانتها الإقليمية كمركز للاستثمار في الطاقة المتجددة</h1>
+                            <p class="lead-desc-text">
+                                تؤكد الدولة التزامها بجذب المزيد من الاستثمارات الأجنبية في قطاع الطاقة النظيفة، مع توقيع اتفاقيات جديدة مع شركاء دوليين لتعزيز الاستدامة.
                             </p>
-                            <div class="story-author-bar">
-                                <div class="author-avatar-mini">
-                                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="الكاتب">
+                            <div class="lead-footer-row">
+                                <button class="btn-lead-readmore">اقرأ المزيد <i class="fa-solid fa-arrow-left"></i></button>
+                                <div class="lead-carousel-dots">
+                                    <span class="dot-label">المزيد</span>
+                                    <span class="dot active"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot-nav">‹</span>
+                                    <span class="dot-nav">›</span>
                                 </div>
-                                <div class="author-info-text">
-                                    <strong>تقرير: د. هاني منصور</strong>
-                                    <span>مدير تحرير الشؤون الاقتصادية</span>
-                                </div>
-                                <button class="read-more-hero-btn">قراءة التقرير الكامل <i class="fa-solid fa-arrow-left"></i></button>
                             </div>
                         </div>
                     </article>
 
-                    <!-- Secondary Hero Grid (3 High-Impact Cards) -->
-                    <div class="hero-secondary-column">
-                        
-                        <article class="secondary-news-card" onclick="switchView('articleView')">
-                            <div class="card-img-wrap">
-                                <img src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=600&q=80" alt="اقتصاد">
-                                <span class="card-badge bg-emerald">اقتصاد</span>
-                            </div>
-                            <div class="card-body">
-                                <div class="meta-mini"><i class="fa-regular fa-clock"></i> منذ ساعة</div>
-                                <h3>البنك المركزي يصدر تعليمات جديدة لتسهيل تمويل المشروعات الناشئة ورواد الأعمال</h3>
-                            </div>
-                        </article>
+                    <!-- Col 2: Latest News Column (24%) -->
+                    <div class="hero-latest-news-card">
+                        <div class="madar-widget-header">
+                            <span class="red-pipe-marker">|</span>
+                            <h3>آخر الأخبار</h3>
+                        </div>
+                        <div class="latest-news-list">
+                            
+                            <article class="compact-news-row" onclick="switchView('articleView')">
+                                <div class="news-text-side">
+                                    <h4>البنك المركزي: الإقتصاد المصري يواصل مسار النمو رغم التحديات</h4>
+                                    <span class="news-time-sub">منذ 45 دقيقة</span>
+                                </div>
+                                <div class="news-thumb-side">
+                                    <img src="https://images.unsplash.com/photo-1541354329998-f4d9a9f9297f?auto=format&fit=crop&w=180&q=80" alt="البنك المركزي">
+                                </div>
+                            </article>
 
-                        <article class="secondary-news-card" onclick="switchView('articleView')">
-                            <div class="card-img-wrap">
-                                <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=600&q=80" alt="رياضة">
-                                <span class="card-badge bg-rose">رياضة</span>
-                            </div>
-                            <div class="card-body">
-                                <div class="meta-mini"><i class="fa-regular fa-clock"></i> منذ ساعتين</div>
-                                <h3>استعدادات قياسية لقمة الكرة المصرية: طاقم تحكيم دولي وتقنية الـ VAR المتطورة</h3>
-                            </div>
-                        </article>
+                            <article class="compact-news-row" onclick="switchView('articleView')">
+                                <div class="news-text-side">
+                                    <h4>ارتفاع أسعار الذهب عالمياً مع توقعات بمزيد من الطلب</h4>
+                                    <span class="news-time-sub">منذ ساعة</span>
+                                </div>
+                                <div class="news-thumb-side">
+                                    <img src="https://images.unsplash.com/photo-1610375461246-83df859d849d?auto=format&fit=crop&w=180&q=80" alt="الذهب">
+                                </div>
+                            </article>
 
-                        <article class="secondary-news-card" onclick="switchView('articleView')">
-                            <div class="card-img-wrap">
-                                <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&q=80" alt="دبلوماسية">
-                                <span class="card-badge bg-blue">عرب وعالم</span>
-                            </div>
-                            <div class="card-body">
-                                <div class="meta-mini"><i class="fa-regular fa-clock"></i> منذ 3 ساعات</div>
-                                <h3>انطلاق محادثات السلام الإقليمية بمشاركة وفود دبلوماسية رفيعة المستوى في جنيف</h3>
-                            </div>
-                        </article>
+                            <article class="compact-news-row" onclick="switchView('articleView')">
+                                <div class="news-text-side">
+                                    <h4>الذكاء الاصطناعي يقود مستقبل الصناعات الرقمية في مصر</h4>
+                                    <span class="news-time-sub">منذ ساعتين</span>
+                                </div>
+                                <div class="news-thumb-side">
+                                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=180&q=80" alt="الذكاء الاصطناعي">
+                                </div>
+                            </article>
 
+                            <article class="compact-news-row" onclick="switchView('articleView')">
+                                <div class="news-text-side">
+                                    <h4>الأهلي المصري يطلق مبادرة لدعم المشروعات الصغيرة والمتوسطة</h4>
+                                    <span class="news-time-sub">منذ 3 ساعات</span>
+                                </div>
+                                <div class="news-thumb-side">
+                                    <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=180&q=80" alt="الأهلي">
+                                </div>
+                            </article>
+
+                        </div>
+                    </div>
+
+                    <!-- Col 3: Market Indices Widget (24%) -->
+                    <div class="hero-markets-card">
+                        <div class="markets-card-header">
+                            <i class="fa-solid fa-chart-line text-blue"></i>
+                            <h4>مؤشرات الأسواق</h4>
+                        </div>
+                        <div class="markets-tabs-row">
+                            <button class="market-tab-btn active">مصر</button>
+                            <button class="market-tab-btn">العالم</button>
+                            <button class="market-tab-btn">العملات</button>
+                            <button class="market-tab-btn">السلع</button>
+                        </div>
+                        <div class="markets-table-body">
+                            <div class="market-ticker-row">
+                                <div class="ticker-name-col">
+                                    <strong>EGX 30</strong>
+                                    <span>32,165.76</span>
+                                </div>
+                                <div class="ticker-change-col positive">
+                                    <i class="fa-solid fa-caret-up"></i> +1.24%
+                                </div>
+                            </div>
+
+                            <div class="market-ticker-row">
+                                <div class="ticker-name-col">
+                                    <strong>الدولار الأمريكي</strong>
+                                    <span>48.75</span>
+                                </div>
+                                <div class="ticker-change-col positive">
+                                    <i class="fa-solid fa-caret-up"></i> +0.15%
+                                </div>
+                            </div>
+
+                            <div class="market-ticker-row">
+                                <div class="ticker-name-col">
+                                    <strong>الذهب</strong>
+                                    <span>4,276.50</span>
+                                </div>
+                                <div class="ticker-change-col positive">
+                                    <i class="fa-solid fa-caret-up"></i> +0.62%
+                                </div>
+                            </div>
+
+                            <div class="market-ticker-row">
+                                <div class="ticker-name-col">
+                                    <strong>خام برنت</strong>
+                                    <span>74.32</span>
+                                </div>
+                                <div class="ticker-change-col positive">
+                                    <i class="fa-solid fa-caret-up"></i> +0.48%
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
             </section>
 
-            <!-- Main Portal Two-Column Layout -->
-            <div class="container portal-layout-grid">
-                
-                <!-- Main News Stream (70%) -->
-                <div class="portal-main-stream">
-
-                    <!-- Section: Egypt & Politics -->
-                    <section class="category-block" id="egyptSection">
-                        <div class="category-header-title">
-                            <h2><i class="fa-solid fa-landmark"></i> مصر والمحافظات</h2>
-                            <a href="#" class="view-all-link">المزيد من أخبار مصر <i class="fa-solid fa-chevron-left"></i></a>
-                        </div>
-                        <div class="category-cards-grid grid-2-col">
-                            
-                            <article class="modern-post-card" onclick="switchView('articleView')">
-                                <div class="post-thumb">
-                                    <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=600&q=80" alt="النقل الذكي">
-                                    <span class="post-cat-pill">نقل ومواصلات</span>
-                                </div>
-                                <div class="post-details">
-                                    <span class="post-time"><i class="fa-regular fa-clock"></i> منذ 4 ساعات</span>
-                                    <h4>تشغيل المرحلة الجديدة من المونوريل والقطار الكهربائي الخفيف رسمياً لخدمة 500 ألف مواطن</h4>
-                                    <p>خطة طموحة لربط المدن الجديدة بشبكة نقل خضراء وصديقة للبيئة بأحدث المعايير التكنولوجية.</p>
-                                </div>
-                            </article>
-
-                            <article class="modern-post-card" onclick="switchView('articleView')">
-                                <div class="post-thumb">
-                                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&q=80" alt="التعليم">
-                                    <span class="post-cat-pill">تعليم وجامعات</span>
-                                </div>
-                                <div class="post-details">
-                                    <span class="post-time"><i class="fa-regular fa-clock"></i> منذ 5 ساعات</span>
-                                    <h4>وزارة التربية والتعليم تطلق منصة تفاعلية للذكاء الاصطناعي لدعم طلاب الثانوية</h4>
-                                    <p>توفير محتوى تعليمي تفاعلي وبنوك أسئلة مدعومة بالذكاء الاصطناعي مجاناً لكافة الطلاب بالمحافظات.</p>
-                                </div>
-                            </article>
-
-                        </div>
-
-                        <!-- Horizontal Strip of Minor Headlines -->
-                        <div class="headline-strip-list">
-                            <div class="headline-strip-item" onclick="switchView('articleView')">
-                                <span class="dot-accent"></span>
-                                <h5>الإسكان تعلن تسليم دفعة جديدة من وحدات 'سكن لكل المصريين' في 8 مدن جديدة</h5>
-                                <span class="time-stamp">منذ 6 ساعات</span>
+            <!-- ROW 2: CATEGORY QUICK-ACCESS CARDS + CURRENCIES STRIP -->
+            <section class="madar-category-strip-section">
+                <div class="container strip-content-flex">
+                    
+                    <!-- 7 Category Cards Row (~76%) -->
+                    <div class="category-cards-scroll-wrap">
+                        
+                        <!-- 1: تعليم -->
+                        <div class="strip-cat-card" onclick="switchView('homeView')">
+                            <div class="strip-card-img">
+                                <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=300&q=80" alt="تعليم">
                             </div>
-                            <div class="headline-strip-item" onclick="switchView('articleView')">
-                                <span class="dot-accent"></span>
-                                <h5>حملات تموينية مكثفة لضبط الأسواق والتأكد من توافر السلع الأساسية بأسعار مخفضة</h5>
-                                <span class="time-stamp">منذ 7 ساعات</span>
-                            </div>
-                            <div class="headline-strip-item" onclick="switchView('articleView')">
-                                <span class="dot-accent"></span>
-                                <h5>افتتاح معرض الحرف اليدوية والتراثية بمشاركة أكثر من 300 عارض من محافظات الصعيد</h5>
-                                <span class="time-stamp">منذ 8 ساعات</span>
+                            <div class="strip-card-content">
+                                <h5><i class="fa-solid fa-graduation-cap"></i> تعليم</h5>
+                                <p>بناء العقول .. صناعة المستقبل</p>
                             </div>
                         </div>
-                    </section>
 
-                    <!-- Section: Al-Nahar 360 TV / Multimedia (Interactive Video Section) -->
-                    <section class="category-block video-multimedia-block" id="videoSection">
-                        <div class="category-header-title text-white">
-                            <h2><i class="fa-solid fa-circle-play text-red"></i> النهار 360 ميديا & TV</h2>
-                            <span class="multimedia-sub">تقارير مصورة وبودكاست وبث مباشر</span>
-                        </div>
-                        <div class="video-showcase-grid">
-                            <!-- Featured Big Player Mockup -->
-                            <div class="featured-video-player" id="featuredVideoMock">
-                                <div class="video-thumbnail-box">
-                                    <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=900&q=80" alt="فيديو تقرير">
-                                    <button class="play-pulse-btn" onclick="playVideoDemo()"><i class="fa-solid fa-play"></i></button>
-                                    <span class="video-duration-tag"><i class="fa-solid fa-clock"></i> 08:45</span>
-                                </div>
-                                <div class="video-player-info">
-                                    <h3>وثائقي النهار 360: رحلة استكشاف أكبر محطة طاقة شمسية في الشرق الأوسط ببنبان</h3>
-                                    <p>جولة ميدانية ترصد كواليس المشروع القومي وكيف تحولت صحراء أسوان إلى عاصمة الطاقة النظيفة.</p>
-                                </div>
+                        <!-- 2: صحة -->
+                        <div class="strip-cat-card" onclick="switchView('homeView')">
+                            <div class="strip-card-img">
+                                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=300&q=80" alt="صحة">
                             </div>
-                            <!-- Mini Video Playlist -->
-                            <div class="video-playlist-column">
-                                <div class="playlist-video-item" onclick="playVideoDemo()">
-                                    <div class="pl-thumb">
-                                        <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=300&q=80" alt="بودكاست">
-                                        <span class="pl-play"><i class="fa-solid fa-play"></i></span>
-                                    </div>
-                                    <div class="pl-meta">
-                                        <h6>بودكاست 360: حوار خاص مع رئيس البورصة المصرية وتوقعات السوق</h6>
-                                        <span><i class="fa-solid fa-headphones"></i> 24 دقيقة</span>
-                                    </div>
-                                </div>
-
-                                <div class="playlist-video-item" onclick="playVideoDemo()">
-                                    <div class="pl-thumb">
-                                        <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=300&q=80" alt="ملخص المباراة">
-                                        <span class="pl-play"><i class="fa-solid fa-play"></i></span>
-                                    </div>
-                                    <div class="pl-meta">
-                                        <h6>أهداف وملخص مباراة القمة: لقطات وتحليل فني مع كبار نجوم الكرة</h6>
-                                        <span><i class="fa-solid fa-video"></i> 12 دقيقة</span>
-                                    </div>
-                                </div>
-
-                                <div class="playlist-video-item" onclick="playVideoDemo()">
-                                    <div class="pl-thumb">
-                                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=300&q=80" alt="تكنولوجيا">
-                                        <span class="pl-play"><i class="fa-solid fa-play"></i></span>
-                                    </div>
-                                    <div class="pl-meta">
-                                        <h6>مراجعة شاملة: أفضل هواتف ذكية لعام 2026 بأسعار اقتصادية</h6>
-                                        <span><i class="fa-solid fa-video"></i> 06:15</span>
-                                    </div>
-                                </div>
+                            <div class="strip-card-content">
+                                <h5><i class="fa-solid fa-heart-pulse"></i> صحة</h5>
+                                <p>حياة أفضل .. صحة للجميع</p>
                             </div>
                         </div>
-                    </section>
 
-                    <!-- Section: Economy & Business -->
-                    <section class="category-block" id="economySection">
-                        <div class="category-header-title">
-                            <h2><i class="fa-solid fa-chart-line"></i> مال وأعمال | النهار بيزنس</h2>
-                            <a href="#" class="view-all-link">مؤشرات السوق <i class="fa-solid fa-chevron-left"></i></a>
-                        </div>
-                        <div class="economy-cards-row">
-                            <article class="economy-compact-card" onclick="switchView('articleView')">
-                                <span class="tag-accent green">صادرات</span>
-                                <h4>الصادرات المصرية تسجل نمواً بنسبة 16% خلال الربع الأخير بدعم قطاع الصناعات الهندسية</h4>
-                                <span class="time-stamp">منذ 3 ساعات</span>
-                            </article>
-                            <article class="economy-compact-card" onclick="switchView('articleView')">
-                                <span class="tag-accent blue">طاقة وغاز</span>
-                                <h4>اكتشافات غاز جديدة في البحر المتوسط تضيف 2 تريليون قدم مكعب للاحتياطي القومي</h4>
-                                <span class="time-stamp">منذ 4 ساعات</span>
-                            </article>
-                            <article class="economy-compact-card" onclick="switchView('articleView')">
-                                <span class="tag-accent purple">شركات ناشئة</span>
-                                <h4>جولات تمويلية بقيمة 85 مليون دولار لشركات التكنولوجيا المالية المصرية خلال الشهر الماضي</h4>
-                                <span class="time-stamp">منذ 6 ساعات</span>
-                            </article>
-                        </div>
-                    </section>
-
-                    <!-- Section: Opinions & Editorial Columns (مقالات الرأي) -->
-                    <section class="category-block opinions-section-block" id="opinionsSection">
-                        <div class="category-header-title">
-                            <h2><i class="fa-solid fa-feather-pointed"></i> أقلام وآراء | نخبة الكتاب</h2>
-                            <span class="opinions-sub">رؤى وتحليلات لأبرز الكتاب والمفكرين</span>
-                        </div>
-                        <div class="opinions-writers-grid">
-                            
-                            <div class="opinion-writer-card" onclick="switchView('articleView')">
-                                <div class="writer-portrait">
-                                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=200&q=80" alt="أسامة شرشر">
-                                </div>
-                                <div class="opinion-details">
-                                    <span class="column-name">عمود: بوصلة الوطن</span>
-                                    <h4 class="opinion-article-title">«الصحافة الورقية والإلكترونية.. تكامل من أجل مستقبل إعلامي واعد»</h4>
-                                    <span class="writer-name">بقلم: أسامة شرشر</span>
-                                    <span class="writer-role">رئيس مجلس الإدارة والتحرير</span>
-                                </div>
+                        <!-- 3: الرياضة -->
+                        <div class="strip-cat-card" onclick="switchView('homeView')">
+                            <div class="strip-card-img">
+                                <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=300&q=80" alt="الرياضة">
                             </div>
-
-                            <div class="opinion-writer-card" onclick="switchView('articleView')">
-                                <div class="writer-portrait">
-                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80" alt="د. سامح كمال">
-                                </div>
-                                <div class="opinion-details">
-                                    <span class="column-name">عمود: قراءة في الأرقام</span>
-                                    <h4 class="opinion-article-title">«التحول الرقمي للقطاع المصرفي: كيف يغير الذكاء الاصطناعي تجربة المواطن؟»</h4>
-                                    <span class="writer-name">د. سامح كمال</span>
-                                    <span class="writer-role">خبير الاقتصاد الرقمي</span>
-                                </div>
+                            <div class="strip-card-content">
+                                <h5><i class="fa-solid fa-futbol"></i> الرياضة</h5>
+                                <p>أخبار .. بطولات .. نجوم</p>
                             </div>
-
                         </div>
-                    </section>
+
+                        <!-- 4: مصر -->
+                        <div class="strip-cat-card" onclick="switchView('homeView')">
+                            <div class="strip-card-img">
+                                <img src="https://images.unsplash.com/photo-1568322445389-f64ac2515020?auto=format&fit=crop&w=300&q=80" alt="مصر">
+                            </div>
+                            <div class="strip-card-content">
+                                <h5><i class="fa-solid fa-landmark"></i> مصر</h5>
+                                <p>تنمية .. إنجازات .. مستقبل</p>
+                            </div>
+                        </div>
+
+                        <!-- 5: العالم -->
+                        <div class="strip-cat-card" onclick="switchView('homeView')">
+                            <div class="strip-card-img">
+                                <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=300&q=80" alt="العالم">
+                            </div>
+                            <div class="strip-card-content">
+                                <h5><i class="fa-solid fa-globe"></i> العالم</h5>
+                                <p>أحداث .. تحليلات .. رؤى</p>
+                            </div>
+                        </div>
+
+                        <!-- 6: الاقتصاد -->
+                        <div class="strip-cat-card" onclick="switchView('homeView')">
+                            <div class="strip-card-img">
+                                <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=300&q=80" alt="الاقتصاد">
+                            </div>
+                            <div class="strip-card-content">
+                                <h5><i class="fa-solid fa-chart-line"></i> الاقتصاد</h5>
+                                <p>أسواق .. استثمار .. فرص جديدة</p>
+                            </div>
+                        </div>
+
+                        <!-- 7: التكنولوجيا -->
+                        <div class="strip-cat-card" onclick="switchView('homeView')">
+                            <div class="strip-card-img">
+                                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=300&q=80" alt="التكنولوجيا">
+                            </div>
+                            <div class="strip-card-content">
+                                <h5><i class="fa-solid fa-microchip"></i> التكنولوجيا</h5>
+                                <p>ابتكار .. مستقبل أفضل</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Currency Rates Card (~24%) -->
+                    <div class="currencies-rates-widget">
+                        <div class="madar-widget-header">
+                            <span class="red-pipe-marker">|</span>
+                            <h4>أسعار العملات</h4>
+                        </div>
+                        <div class="currencies-mini-grid">
+                            <div class="curr-box">
+                                <span class="curr-name">دولار أمريكي</span>
+                                <strong class="curr-val">48.75</strong>
+                                <small>ج.م</small>
+                            </div>
+                            <div class="curr-box">
+                                <span class="curr-name">جنيه إسترليني</span>
+                                <strong class="curr-val">48.75</strong>
+                                <small>ج.م</small>
+                            </div>
+                            <div class="curr-box">
+                                <span class="curr-name">يورو</span>
+                                <strong class="curr-val">52.34</strong>
+                                <small>ج.م</small>
+                            </div>
+                            <div class="curr-box">
+                                <span class="curr-name">جنيه إسترليني</span>
+                                <strong class="curr-val">61.23</strong>
+                                <small>ج.م</small>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
+            </section>
 
-                <!-- Sidebar Stream (30%) -->
-                <aside class="portal-sidebar-stream">
+            <!-- ROW 3: LOWER MULTI-WIDGET & EDITORIAL SHOWCASE -->
+            <section class="madar-lower-multi-section">
+                <div class="container lower-tri-grid">
                     
-                    <!-- Trending / Most Read Widget -->
-                    <div class="sidebar-widget-card trending-widget">
-                        <div class="widget-header">
-                            <h3><i class="fa-solid fa-fire text-red"></i> الأكثر قراءة الآن</h3>
-                            <span class="live-indicator">تحديث فوري</span>
-                        </div>
-                        <div class="trending-list-items">
-                            <div class="trending-item" onclick="switchView('articleView')">
-                                <span class="trend-rank">1</span>
-                                <div class="trend-content">
-                                    <h4>بيان عاجل من الأرصاد الجوية يحذر من تقلبات الطقس وفرص سقوط الأمطار</h4>
-                                    <span class="trend-views"><i class="fa-solid fa-eye"></i> 52,100 قراءة</span>
-                                </div>
+                    <!-- Left Area (~76%): 4 Columns Sub-Grid -->
+                    <div class="lower-four-cols-area">
+                        
+                        <!-- Col A: Infographic Card -->
+                        <div class="lower-widget-box infographic-card">
+                            <div class="infograph-header">
+                                <h4>إنفوجراف</h4>
+                                <i class="fa-solid fa-arrow-left"></i>
                             </div>
-                            <div class="trending-item" onclick="switchView('articleView')">
-                                <span class="trend-rank">2</span>
-                                <div class="trend-content">
-                                    <h4>قائمة أسعار السلع التموينية الجديدة ومواعيد صرف المقررات الشهرية</h4>
-                                    <span class="trend-views"><i class="fa-solid fa-eye"></i> 41,300 قراءة</span>
+                            <div class="infograph-body">
+                                <h5>أهم مؤشرات الاقتصاد المصري في 2026</h5>
+                                <div class="chart-visual-mock">
+                                    <div class="chart-bar-line"></div>
                                 </div>
-                            </div>
-                            <div class="trending-item" onclick="switchView('articleView')">
-                                <span class="trend-rank">3</span>
-                                <div class="trend-content">
-                                    <h4>محمد صلاح يحقق رقماً قياسياً جديداً ويقود ليفربول لفوز ساحق</h4>
-                                    <span class="trend-views"><i class="fa-solid fa-eye"></i> 38,900 قراءة</span>
+                                <div class="infograph-stats-grid">
+                                    <div class="stat-cell">
+                                        <small>نمو الناتج المحلي</small>
+                                        <strong>4.2%</strong>
+                                    </div>
+                                    <div class="stat-cell">
+                                        <small>معدل التضخم</small>
+                                        <strong>12.8%</strong>
+                                    </div>
+                                    <div class="stat-cell">
+                                        <small>سعر الصرف</small>
+                                        <strong>49.5 <span class="curr">ج.م/دولار</span></strong>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="trending-item" onclick="switchView('articleView')">
-                                <span class="trend-rank">4</span>
-                                <div class="trend-content">
-                                    <h4>تفاصيل كراسة شروط حجز الأراضي الصناعية الجديدة المرفقة بالمحافظات</h4>
-                                    <span class="trend-views"><i class="fa-solid fa-eye"></i> 29,400 قراءة</span>
-                                </div>
-                            </div>
-                            <div class="trending-item" onclick="switchView('articleView')">
-                                <span class="trend-rank">5</span>
-                                <div class="trend-content">
-                                    <h4>تحديثات جديدة في تطبيق واتساب تجلب ميزات الذكاء الاصطناعي رسمياً لجميع المستخدمين</h4>
-                                    <span class="trend-views"><i class="fa-solid fa-eye"></i> 24,800 قراءة</span>
-                                </div>
+                                <button class="btn-infograph-more" onclick="switchView('articleView')">شاهد المزيد</button>
                             </div>
                         </div>
+
+                        <!-- Col B: Reports & Analysis -->
+                        <div class="lower-widget-box reports-widget-box">
+                            <div class="madar-widget-header">
+                                <i class="fa-solid fa-newspaper text-red"></i>
+                                <h4>تقارير وتحليلات</h4>
+                            </div>
+                            <div class="reports-vertical-list">
+                                <article class="report-item-row" onclick="switchView('articleView')">
+                                    <div class="report-text">
+                                        <h6>مستقبل الطاقة المتجددة في مصر وتحديات التحول الأخضر</h6>
+                                        <span class="report-time">منذ 5 ساعات</span>
+                                    </div>
+                                    <img src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=150&q=80" alt="تقرير">
+                                </article>
+
+                                <article class="report-item-row" onclick="switchView('articleView')">
+                                    <div class="report-text">
+                                        <h6>الاقتصاد الرقمي .. فرصة للنمو في الأسواق العربية</h6>
+                                        <span class="report-time">منذ 7 ساعات</span>
+                                    </div>
+                                    <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=150&q=80" alt="تقرير">
+                                </article>
+
+                                <article class="report-item-row" onclick="switchView('articleView')">
+                                    <div class="report-text">
+                                        <h6>الذكاء الاصطناعي .. بين الفرص والمخاطر</h6>
+                                        <span class="report-time">منذ 9 ساعات</span>
+                                    </div>
+                                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=150&q=80" alt="تقرير">
+                                </article>
+                            </div>
+                            <div class="box-footer-link">
+                                <a href="javascript:void(0)" onclick="switchView('articleView')">المزيد <i class="fa-solid fa-arrow-left"></i></a>
+                            </div>
+                        </div>
+
+                        <!-- Col C: Video Multimedia -->
+                        <div class="lower-widget-box video-widget-box">
+                            <div class="madar-widget-header">
+                                <i class="fa-solid fa-play text-red"></i>
+                                <h4>فيديو</h4>
+                            </div>
+                            <div class="video-main-preview" onclick="playVideoDemo()">
+                                <div class="v-thumb">
+                                    <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=400&q=80" alt="فيديو">
+                                    <span class="v-play-btn"><i class="fa-solid fa-play"></i></span>
+                                </div>
+                                <h6>مشروعات الطاقة المتجددة .. خطوة نحو مستقبل أكثر استدامة</h6>
+                            </div>
+                            <div class="video-sub-list">
+                                <div class="v-sub-item" onclick="playVideoDemo()">
+                                    <div class="v-sub-text">
+                                        <small>لقاء خاص مع وزير الاستثمار</small>
+                                        <span>منذ 5 ساعات</span>
+                                    </div>
+                                    <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=120&q=80" alt="فيديو">
+                                </div>
+                                <div class="v-sub-item" onclick="playVideoDemo()">
+                                    <div class="v-sub-text">
+                                        <small>مبادرة مصر الرقمية في الجامعات</small>
+                                        <span>منذ 7 ساعات</span>
+                                    </div>
+                                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=120&q=80" alt="فيديو">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Col D: Numbered Urgent News (1 to 5) -->
+                        <div class="lower-widget-box urgent-feed-box">
+                            <div class="madar-widget-header">
+                                <span class="red-pipe-marker">|</span>
+                                <h4>أخبار عاجلة</h4>
+                            </div>
+                            <div class="urgent-numbered-list">
+                                <div class="urgent-num-row" onclick="switchView('articleView')">
+                                    <div class="urgent-text-wrap">
+                                        <h6>مصر تستضيف منتدى الاستثمار الإفريقي 2026</h6>
+                                        <span class="time">منذ 10 دقائق</span>
+                                    </div>
+                                    <span class="num-badge-red">1</span>
+                                </div>
+
+                                <div class="urgent-num-row" onclick="switchView('articleView')">
+                                    <div class="urgent-text-wrap">
+                                        <h6>الأهلي يعلن عن شراكة جديدة في مجال التكنولوجيا</h6>
+                                        <span class="time">منذ 25 دقيقة</span>
+                                    </div>
+                                    <span class="num-badge-red">2</span>
+                                </div>
+
+                                <div class="urgent-num-row" onclick="switchView('articleView')">
+                                    <div class="urgent-text-wrap">
+                                        <h6>تراجع أسعار النفط عالمياً مع تنامي المخاوف الاقتصادية</h6>
+                                        <span class="time">منذ 40 دقيقة</span>
+                                    </div>
+                                    <span class="num-badge-red">3</span>
+                                </div>
+
+                                <div class="urgent-num-row" onclick="switchView('articleView')">
+                                    <div class="urgent-text-wrap">
+                                        <h6>إطلاق منصة رقمية جديدة لخدمات المواطنين</h6>
+                                        <span class="time">منذ ساعة</span>
+                                    </div>
+                                    <span class="num-badge-red">4</span>
+                                </div>
+
+                                <div class="urgent-num-row" onclick="switchView('articleView')">
+                                    <div class="urgent-text-wrap">
+                                        <h6>ارتفاع طفيف في أسعار الذهب محلياً</h6>
+                                        <span class="time">منذ ساعة</span>
+                                    </div>
+                                    <span class="num-badge-red">5</span>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
 
-                    <!-- Sidebar Ad Unit (300x250) -->
-                    <div class="sidebar-ad-card">
-                        <span class="ad-tag-label">مساحة إعلانية (300x250)</span>
-                        <div class="mock-ad-box">
-                            <i class="fa-solid fa-award text-gold"></i>
-                            <h4>تطبيق النهار 360 الإخباري</h4>
-                            <p>حمّل التطبيق الآن على أندرويد وآيفون وتلقى التنبيهات العاجلة لحظة بلحظة</p>
-                            <button class="ad-download-btn"><i class="fa-brands fa-google-play"></i> جوجل بلاي | <i class="fa-brands fa-apple"></i> آب ستور</button>
-                        </div>
-                    </div>
-
-                    <!-- Interactive Readers Poll Widget -->
-                    <div class="sidebar-widget-card poll-widget" id="pollWidget">
-                        <div class="widget-header">
-                            <h3><i class="fa-solid fa-square-poll-vertical text-blue"></i> استطلاع رأي القراء</h3>
-                        </div>
-                        <div class="poll-content-box">
-                            <p class="poll-question">هل تؤيد التوسع في استخدام وسائل النقل الكهربائية الذكية للحد من التلوث والازدحام؟</p>
-                            <form id="pollForm" onsubmit="handlePollSubmit(event)">
-                                <label class="poll-option">
-                                    <input type="radio" name="pollChoice" value="yes" checked>
-                                    <span>أؤيد بشدة</span>
-                                </label>
-                                <label class="poll-option">
-                                    <input type="radio" name="pollChoice" value="neutral">
-                                    <span>أؤيد مع توفير بنية تحتية كافية</span>
-                                </label>
-                                <label class="poll-option">
-                                    <input type="radio" name="pollChoice" value="no">
-                                    <span>لا أؤيد حالياً</span>
-                                </label>
-                                <button type="submit" class="submit-poll-btn">تصويت</button>
+                    <!-- Right Area (~24%): Sidebar Stack -->
+                    <aside class="lower-sidebar-area">
+                        
+                        <!-- 1: Newsletter Signup -->
+                        <div class="madar-newsletter-card">
+                            <div class="nl-icon-head">
+                                <i class="fa-regular fa-envelope"></i>
+                            </div>
+                            <p class="nl-prompt">اشترك في النشرة الإخبارية لتصلك أهم الأخبار أولاً بأول</p>
+                            <form class="nl-inline-form" onsubmit="handleNewsletterSubmit(event)">
+                                <input type="email" placeholder="أدخل بريدك الإلكتروني" required>
+                                <button type="submit">اشترك</button>
                             </form>
-                            <div class="poll-results" id="pollResults" style="display: none;">
-                                <div class="poll-bar-group">
-                                    <div class="bar-label"><span>أؤيد بشدة</span> <span>78%</span></div>
-                                    <div class="bar-track"><div class="bar-fill" style="width: 78%;"></div></div>
+                        </div>
+
+                        <!-- 2: Mobile App Banner -->
+                        <div class="madar-app-card">
+                            <div class="app-card-content">
+                                <div class="app-text-side">
+                                    <h4>تطبيق النهار 360</h4>
+                                    <p>أخبارك في كل مكان</p>
+                                    <div class="store-buttons-stack">
+                                        <span class="store-badge"><i class="fa-brands fa-apple"></i> App Store</span>
+                                        <span class="store-badge"><i class="fa-brands fa-google-play"></i> Google Play</span>
+                                    </div>
                                 </div>
-                                <div class="poll-bar-group">
-                                    <div class="bar-label"><span>أؤيد مع بنية تحتية</span> <span>18%</span></div>
-                                    <div class="bar-track"><div class="bar-fill" style="width: 18%;"></div></div>
+                                <div class="app-phone-mock">
+                                    <i class="fa-solid fa-mobile-screen phone-icon-3d"></i>
                                 </div>
-                                <div class="poll-bar-group">
-                                    <div class="bar-label"><span>لا أؤيد</span> <span>4%</span></div>
-                                    <div class="bar-track"><div class="bar-fill" style="width: 4%;"></div></div>
-                                </div>
-                                <p class="total-votes-note"><i class="fa-solid fa-check-circle text-green"></i> تم تسجيل صوتك بنجاح! إجمالي المصوتين: 3,420</p>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Direct Newsletter Box -->
-                    <div class="sidebar-widget-card newsletter-widget" id="newsletterSection">
-                        <div class="widget-header">
-                            <h3><i class="fa-solid fa-paper-plane text-gold"></i> نشرة النهار 360</h3>
+                        <!-- 3: Most Read -->
+                        <div class="madar-most-read-card">
+                            <div class="madar-widget-header">
+                                <span class="red-pipe-marker">|</span>
+                                <h4>الأكثر قراءة</h4>
+                            </div>
+                            <div class="most-read-avatar-list">
+                                <div class="mr-item" onclick="switchView('articleView')">
+                                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="avatar">
+                                    <div class="mr-info">
+                                        <h6>أسعار الذهب اليوم في مصر</h6>
+                                    </div>
+                                    <span class="mr-rank">1</span>
+                                </div>
+
+                                <div class="mr-item" onclick="switchView('articleView')">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" alt="avatar">
+                                    <div class="mr-info">
+                                        <h6>توقعات الفائدة في البنوك</h6>
+                                    </div>
+                                    <span class="mr-rank">2</span>
+                                </div>
+
+                                <div class="mr-item" onclick="switchView('articleView')">
+                                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80" alt="avatar">
+                                    <div class="mr-info">
+                                        <h6>أفضل 10 جامعات في الشرق الأوسط</h6>
+                                    </div>
+                                    <span class="mr-rank">3</span>
+                                </div>
+
+                                <div class="mr-item" onclick="switchView('articleView')">
+                                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80" alt="avatar">
+                                    <div class="mr-info">
+                                        <h6>نصائح للحفاظ على صحة القلب</h6>
+                                    </div>
+                                    <span class="mr-rank">4</span>
+                                </div>
+
+                                <div class="mr-item" onclick="switchView('articleView')">
+                                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=80" alt="avatar">
+                                    <div class="mr-info">
+                                        <h6>مستقبل الذكاء الاصطناعي في التعليم</h6>
+                                    </div>
+                                    <span class="mr-rank">5</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="newsletter-body">
-                            <p>احصل على ملخص أهم أخبار الصباح والمساء مباشرة في بريدك الإلكتروني يومياً.</p>
-                            <form onsubmit="handleNewsletterSubmit(event)">
-                                <input type="email" placeholder="أدخل بريدك الإلكتروني..." required>
-                                <button type="submit" class="newsletter-sub-btn"><i class="fa-solid fa-bell"></i> اشتراك مجاني</button>
-                            </form>
-                        </div>
-                    </div>
 
-                </aside>
+                    </aside>
 
-            </div>
+                </div>
+            </section>
 
         </main>
 
@@ -1081,81 +1157,38 @@
             </div>
         </main>
 
-        <!-- =================== FOOTER =================== -->
-        <footer class="main-portal-footer">
-            <div class="container footer-top-grid">
-                
-                <div class="footer-col-about">
-                    <div class="footer-logo-wrap">
-                        <img src="logo.png" alt="النهار 360" class="official-footer-logo">
-                    </div>
-                    <p class="footer-desc">
-                        صحيفة إلكترونية مصرية عربية يومية شاملة، تصدر عن شركة الوقائع العربية للصحافة والنشر. ملتزمة بتقديم صحافة مهنية مستقلة وتحقيقات حصرية ومتابعة إخبارية حية على مدار 24 ساعة.
-                    </p>
-                    <div class="footer-management-card">
-                        <p><strong>رئيس مجلس الإدارة ورئيس التحرير:</strong> الكاتب الصحفي أسامة شرشر</p>
-                    </div>
-                    <div class="footer-social-links">
-                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                        <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-                        <a href="#"><i class="fa-brands fa-telegram"></i></a>
-                        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+        <!-- =================== MADAR-STYLE FOOTER =================== -->
+        <footer class="madar-footer-main">
+            <div class="container madar-footer-flex">
+                <!-- Right: Logo & Slogan -->
+                <div class="footer-brand-box">
+                    <img src="logo.png" alt="النهار 360" class="footer-madar-logo">
+                    <div class="footer-slogan-text">
+                        <span>الحقيقة في كل الاتجاهات</span>
+                        <small>The Truth in Every Direction</small>
                     </div>
                 </div>
 
-                <div class="footer-col-links">
-                    <h4>أقسام الموقع</h4>
-                    <ul>
-                        <li><a href="javascript:void(0)" onclick="switchView('homeView')">الرئيسية</a></li>
-                        <li><a href="javascript:void(0)" onclick="switchView('homeView'); scrollToSection('egyptSection')">مصر والمحافظات</a></li>
-                        <li><a href="javascript:void(0)" onclick="switchView('homeView'); scrollToSection('politicsSection')">سياسة ودبلوماسية</a></li>
-                        <li><a href="javascript:void(0)" onclick="switchView('homeView'); scrollToSection('economySection')">مال وأعمال واقتصاد</a></li>
-                        <li><a href="javascript:void(0)" onclick="switchView('homeView'); scrollToSection('sportsSection')">رياضة محلية وعالمية</a></li>
-                        <li><a href="javascript:void(0)" onclick="switchView('homeView')">عرب وعالم</a></li>
-                        <li><a href="javascript:void(0)" onclick="switchView('homeView')">تكنولوجيا وذكاء اصطناعي</a></li>
-                    </ul>
-                </div>
+                <!-- Center: Navigation Links -->
+                <nav class="footer-center-links">
+                    <a href="javascript:void(0)" onclick="switchView('homeView')">من نحن</a>
+                    <a href="javascript:void(0)" onclick="switchView('homeView')">هيئة التحرير</a>
+                    <a href="javascript:void(0)" onclick="switchView('homeView')">سياسة الخصوصية</a>
+                    <a href="javascript:void(0)" onclick="switchView('homeView')">شروط الاستخدام</a>
+                    <a href="javascript:void(0)" onclick="switchView('homeView')">اتصل بنا</a>
+                    <a href="javascript:void(0)" onclick="switchView('homeView')">خريطة الموقع</a>
+                </nav>
 
-                <div class="footer-col-links">
-                    <h4>خدمات ومتابعة</h4>
-                    <ul>
-                        <li><a href="javascript:void(0)" onclick="switchView('homeView'); scrollToSection('videoSection')">النهار TV وبودكاست</a></li>
-                        <li><a href="javascript:void(0)" onclick="switchView('homeView'); scrollToSection('opinionsSection')">أقلام وآراء الكتاب</a></li>
-                        <li><a href="javascript:void(0)" onclick="switchView('homeView')">أسعار الذهب والعملات</a></li>
-                        <li><a href="javascript:void(0)" onclick="switchView('homeView')">مواقيت الصلاة والطقس</a></li>
-                        <li><a href="javascript:void(0)" onclick="switchView('adminView')">بوابة الصحفيين (CMS)</a></li>
-                        <li><a href="javascript:void(0)">أرشيف أعداد النهار الورقية</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-col-contact">
-                    <h4>تواصل معنا</h4>
-                    <p><i class="fa-solid fa-location-dot"></i> المقر الرئيسي: القاهرة، جمهورية مصر العربية</p>
-                    <p><i class="fa-solid fa-phone"></i> الخط الساخن وهيئة التحرير: 02-33456789</p>
-                    <p><i class="fa-solid fa-envelope"></i> البريد التحريري: news@alnahar360.com</p>
-                    <p><i class="fa-solid fa-bullhorn"></i> إدارة الإعلانات: ads@alnahar360.com</p>
-                    <div class="mobile-apps-badges">
-                        <span>حمل تطبيقنا:</span>
-                        <div class="badges-row">
-                            <span class="app-badge"><i class="fa-brands fa-google-play"></i> Google Play</span>
-                            <span class="app-badge"><i class="fa-brands fa-apple"></i> App Store</span>
-                        </div>
+                <!-- Left: Social & Copyright -->
+                <div class="footer-left-tools">
+                    <div class="footer-social-strip">
+                        <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
                     </div>
-                </div>
-
-            </div>
-
-            <div class="footer-bottom-bar">
-                <div class="container footer-bottom-flex">
-                    <p>© 2026 النهار 360 (Al-Nahar 360). جميع الحقوق محفوظة لشركة الوقائع العربية للصحافة والنشر.</p>
-                    <div class="footer-legal-links">
-                        <a href="#">سياسة الخصوصية</a>
-                        <a href="#">شروط الاستخدام</a>
-                        <a href="#">ميثاق الشرف الصحفي</a>
-                        <a href="#">خريطة الموقع XML</a>
-                    </div>
+                    <span class="footer-copyright-note">جميع الحقوق محفوظة © النهار 360 - 2026</span>
                 </div>
             </div>
         </footer>

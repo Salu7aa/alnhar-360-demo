@@ -61,6 +61,63 @@ function initApp() {
     setupMobilePreview();
     setupControllerBarCollapse();
     setupMobileMenu();
+    setupMarketTabs();
+}
+
+/**
+ * Interactive Market Indices Tabs (مصر | العالم | العملات | السلع)
+ */
+function setupMarketTabs() {
+    const tabs = document.querySelectorAll('.market-tab-btn');
+    const tableBody = document.querySelector('.markets-table-body');
+    if (!tabs.length || !tableBody) return;
+
+    const marketData = {
+        'مصر': [
+            { name: 'EGX 30', val: '32,165.76', change: '+1.24%' },
+            { name: 'الدولار الأمريكي', val: '48.75', change: '+0.15%' },
+            { name: 'الذهب عيار 21', val: '4,276.50', change: '+0.62%' },
+            { name: 'خام برنت', val: '74.32', change: '+0.48%' }
+        ],
+        'العالم': [
+            { name: 'داو جونز (Dow Jones)', val: '44,296.51', change: '+0.59%' },
+            { name: 'ستاندرد آند بورز 500', val: '5,969.34', change: '+0.73%' },
+            { name: 'ناسداك (NASDAQ)', val: '19,003.65', change: '+0.88%' },
+            { name: 'نيكاي الياباني', val: '38,283.85', change: '+0.67%' }
+        ],
+        'العملات': [
+            { name: 'اليورو / دولار', val: '1.042 $', change: '+0.12%' },
+            { name: 'الجنيه الإسترليني', val: '1.258 $', change: '+0.25%' },
+            { name: 'الريال السعودي', val: '13.02 ج.م', change: '+0.05%' },
+            { name: 'الدرهم الإماراتي', val: '13.27 ج.م', change: '+0.04%' }
+        ],
+        'السلع': [
+            { name: 'الذهب أوقية', val: '2,712.40 $', change: '+0.84%' },
+            { name: 'الفضة أوقية', val: '31.45 $', change: '+1.15%' },
+            { name: 'الغاز الطبيعي', val: '3.12 $', change: '+2.40%' },
+            { name: 'النحاس', val: '4.15 $', change: '+0.32%' }
+        ]
+    };
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            const cat = tab.textContent.trim();
+            const list = marketData[cat] || marketData['مصر'];
+            tableBody.innerHTML = list.map(item => `
+                <div class="market-ticker-row">
+                    <div class="ticker-name-col">
+                        <strong>${item.name}</strong>
+                        <span>${item.val}</span>
+                    </div>
+                    <div class="ticker-change-col positive">
+                        <i class="fa-solid fa-caret-up"></i> ${item.change}
+                    </div>
+                </div>
+            `).join('');
+        });
+    });
 }
 
 /**
